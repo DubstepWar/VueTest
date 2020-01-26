@@ -1,7 +1,10 @@
-import VueRouter from 'vue-router';
+import VueRouter from 'vue-router'
 
-import HomeComponent from './components/HomeComponent';
-import MyDoughnutChart from './components/MyDoughnutChart';
+import HomeComponent from "./components/HomeComponent";
+import LoginComponent from "./components/Authorisation/LoginComponent";
+import RegisterComponent from "./components/Authorisation/RegisterComponent";
+import ArticleComponent from "./components/ArticleComponent";
+import CreateArticle from "./components/CreateArticle";
 
 export default new VueRouter({
     routes: [
@@ -10,11 +13,26 @@ export default new VueRouter({
             name: 'home',
             component: HomeComponent
         },
-         {
-             path: '/doughnut_chart',
-             name: 'doughnut_chart',
-             component: MyDoughnutChart
-         }
+        {
+            path: '/login',
+            name: 'login',
+            component: LoginComponent
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: RegisterComponent
+        },
+        {
+            path: '/article',
+            name: 'article',
+            component: ArticleComponent
+        },
+        {
+            path: '/create-article',
+            name: 'create-article',
+            component: CreateArticle
+        },
     ],
     mode: 'history'
 });

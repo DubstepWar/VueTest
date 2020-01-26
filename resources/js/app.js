@@ -10,8 +10,19 @@ import VueRouter from 'vue-router';
 import router from './router';
 import App from './components/App.vue';
 import BootstrapVue from 'bootstrap-vue';
-import VueCharts from "vue-chartjs";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import store from "./store/store";
+
+
+library.add(faUserSecret)
+library.add(faSearch)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.config.productionTip = false
 
 require('./bootstrap');
 
@@ -22,7 +33,8 @@ window.Vue = require('vue');
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
-Vue.use(VueCharts);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,7 +43,9 @@ Vue.use(VueCharts);
  */
 
 const app = new Vue({
-    el: '#app',
-    render : h=>h(App),
-    router
-});
+        el: '#app',
+        store,
+        render: h => h(App),
+        router
+    })
+;
